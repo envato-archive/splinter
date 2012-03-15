@@ -23,7 +23,7 @@ Add to `spec_helper.rb`:
 ## Performance Tweaks
 
 Capybara runs in a different thread when the driver is not `rack-test`. This
-can cause issues with transactional fixtures as ActiveRecord normal creates a
+can cause issues with transactional fixtures as ActiveRecord normally creates a
 new connection per-thread. If you need to force ActiveRecord to share the
 connection between threads, add the following to `spec_helper`:
 
