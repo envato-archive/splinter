@@ -8,8 +8,8 @@ Rails forms.
 Bonus: Splinter also includes a few performance tweaks which can be used to
 speed up test suites. These are opt-in.
 
-[Build Icon]: https://secure.travis-ci.org/itspriddle/splinter.png?branch=master
-[Build Status]: https://travis-ci.org/itspriddle/splinter
+[Build Icon]: https://secure.travis-ci.org/site5/splinter.png?branch=master
+[Build Status]: https://travis-ci.org/site5/splinter
 
 ## Installation
 
