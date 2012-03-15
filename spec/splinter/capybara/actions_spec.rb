@@ -46,8 +46,8 @@ describe Splinter, :type => :request do
       it { find_result("lock_at(1i)").should == time.year.to_s }
       it { find_result("lock_at(2i)").should == time.month.to_s }
       it { find_result("lock_at(3i)").should == time.day.to_s }
-      it { find_result("lock_at(4i)").should == time.hour.to_s }
-      it { find_result("lock_at(5i)").should == time.min.to_s }
+      it { find_result("lock_at(4i)").should == "%02d" % time.hour }
+      it { find_result("lock_at(5i)").should == "%02d" % time.min }
 
       it { find_result(:publish).should == '1' }
     end
