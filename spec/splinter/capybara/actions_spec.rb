@@ -35,20 +35,22 @@ describe Splinter, :type => :request do
       end
     end
 
-    it { find_result(:name).should == "Josh" }
-    it { find_result(:content).should == "Lorem ipsum" }
-    it { find_result(:privacy).should == "private" }
-    it { find_result("publish_at(1i)").should == time.year.to_s }
-    it { find_result("publish_at(2i)").should == time.month.to_s }
-    it { find_result("publish_at(3i)").should == time.day.to_s }
+    describe "submitted values" do
+      it { find_result(:name).should == "Josh" }
+      it { find_result(:content).should == "Lorem ipsum" }
+      it { find_result(:privacy).should == "private" }
+      it { find_result("publish_at(1i)").should == time.year.to_s }
+      it { find_result("publish_at(2i)").should == time.month.to_s }
+      it { find_result("publish_at(3i)").should == time.day.to_s }
 
-    it { find_result("lock_at(1i)").should == time.year.to_s }
-    it { find_result("lock_at(2i)").should == time.month.to_s }
-    it { find_result("lock_at(3i)").should == time.day.to_s }
-    it { find_result("lock_at(4i)").should == time.hour.to_s }
-    it { find_result("lock_at(5i)").should == time.min.to_s }
+      it { find_result("lock_at(1i)").should == time.year.to_s }
+      it { find_result("lock_at(2i)").should == time.month.to_s }
+      it { find_result("lock_at(3i)").should == time.day.to_s }
+      it { find_result("lock_at(4i)").should == time.hour.to_s }
+      it { find_result("lock_at(5i)").should == time.min.to_s }
 
-    it { find_result(:publish).should == '1' }
+      it { find_result(:publish).should == '1' }
+    end
   end
 
   context "time helpers" do
@@ -60,34 +62,36 @@ describe Splinter, :type => :request do
       visit "/"
     end
 
-    describe "#select_datetime" do
-      it "selects all dropdowns" do
-        select_datetime time, :id_prefix => prefix
+    { :id_prefix => "post_lock_at", :from => "Lock at" }.each do |prefix_key, prefix_val|
+      describe "#select_datetime" do
+        it "selects all dropdowns by #{prefix_key.inspect}" do
+          select_datetime time, prefix_key => prefix_val
 
-        find_selected_option("#{prefix}_1i").should == time.year.to_s
-        find_selected_option("#{prefix}_2i").should == time.month.to_s
-        find_selected_option("#{prefix}_3i").should == time.day.to_s
-        find_selected_option("#{prefix}_4i").should == time.hour.to_s
-        find_selected_option("#{prefix}_5i").should == time.min.to_s
+          find_selected_option("#{prefix}_1i").should == time.year.to_s
+          find_selected_option("#{prefix}_2i").should == time.month.to_s
+          find_selected_option("#{prefix}_3i").should == time.day.to_s
+          find_selected_option("#{prefix}_4i").should == time.hour.to_s
+          find_selected_option("#{prefix}_5i").should == time.min.to_s
+        end
       end
-    end
 
-    describe "#select_time" do
-      it "selects time dropdowns" do
-        select_time time, :id_prefix => prefix
+      describe "#select_time" do
+        it "selects time dropdowns by #{prefix_key.inspect}" do
+          select_time time, prefix_key => prefix_val
 
-        find_selected_option("#{prefix}_4i").should == time.hour.to_s
-        find_selected_option("#{prefix}_5i").should == time.min.to_s
+          find_selected_option("#{prefix}_4i").should == time.hour.to_s
+          find_selected_option("#{prefix}_5i").should == time.min.to_s
+        end
       end
-    end
 
-    describe "#select_date" do
-      it "selects date dropdowns" do
-        select_date time, :id_prefix => prefix
+      describe "#select_date" do
+        it "selects date dropdowns by #{prefix_key.inspect}" do
+          select_date time, prefix_key => prefix_val
 
-        find_selected_option("#{prefix}_1i").should == time.year.to_s
-        find_selected_option("#{prefix}_2i").should == time.month.to_s
-        find_selected_option("#{prefix}_3i").should == time.day.to_s
+          find_selected_option("#{prefix}_1i").should == time.year.to_s
+          find_selected_option("#{prefix}_2i").should == time.month.to_s
+          find_selected_option("#{prefix}_3i").should == time.day.to_s
+        end
       end
     end
   end
