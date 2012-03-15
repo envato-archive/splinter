@@ -58,7 +58,7 @@ usage.
 
 ## Completing Forms
 
-Here's a little sugar to help completing Rails forms:
+Here's a little sugar to help complete Rails forms:
 
     complete_form :post do |f|
       f.text_field :name, "I like turtles!"
