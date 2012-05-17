@@ -70,8 +70,8 @@ describe Splinter, :type => :request do
           find_selected_option("#{prefix}_1i").should == time.year.to_s
           find_selected_option("#{prefix}_2i").should == time.month.to_s
           find_selected_option("#{prefix}_3i").should == time.day.to_s
-          find_selected_option("#{prefix}_4i").should == time.hour.to_s
-          find_selected_option("#{prefix}_5i").should == time.min.to_s
+          find_selected_option("#{prefix}_4i").should == "%02d" % time.hour.to_s
+          find_selected_option("#{prefix}_5i").should == "%02d" % time.min.to_s
         end
       end
 
@@ -79,8 +79,8 @@ describe Splinter, :type => :request do
         it "selects time dropdowns by #{prefix_key.inspect}" do
           select_time time, prefix_key => prefix_val
 
-          find_selected_option("#{prefix}_4i").should == time.hour.to_s
-          find_selected_option("#{prefix}_5i").should == time.min.to_s
+          find_selected_option("#{prefix}_4i").should == "%02d" % time.hour.to_s
+          find_selected_option("#{prefix}_5i").should == "%02d" % time.min.to_s
         end
       end
 
