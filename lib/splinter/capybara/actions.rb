@@ -46,7 +46,7 @@ module Splinter
         form = FormCompleter.new(base)
         yield form
         form.each_input { |method, *args| send(method, *args) }
-        submit_form
+        find(:xpath, "//form[contains(@id,'#{base}')]//input[@type='submit']").click
       end
 
       # Selects hour and minute dropdowns for a time attribute.
@@ -128,11 +128,6 @@ module Splinter
 
         find(:xpath, path, :message => message).text.sub(/_\di$/, '')
       end
-
-      def submit_form
-        find("form input[type='submit']").click
-      end
-
     end
   end
 end
