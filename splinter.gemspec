@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'capybara'
 
-  s.add_development_dependency 'rspec',     '~> 2.8.0'
+  s.add_development_dependency 'rspec',     '~> 2.10.0'
   s.add_development_dependency 'sinatra',   '~> 1.3.2'
   s.add_development_dependency 'rake',      '~> 0.9.2.2'
   s.add_development_dependency 'rack-test', '~> 0.6.1'
