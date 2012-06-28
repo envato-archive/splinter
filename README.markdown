@@ -69,6 +69,13 @@ Here's a little sugar to help complete Rails forms:
 
 After the block is evaluated, the form is completed and submitted.
 
+## Javascript Confirm
+
+You can use these helpers to confirm/cancel a javascript "confirm":
+
+    javascript_confirm        { click_link "Destroy" }
+    javascript_confirm(false) { click_link "Destroy" }
+
 ## Note on Patches/Pull Requests
 
 * Fork the project.
