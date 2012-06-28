@@ -109,6 +109,20 @@ module Splinter
         select.find(:xpath, path, :message => option_err).select_option
       end
 
+      # Simulates a javascript alert confirmation. You need to pass in a block that will
+      # generate the alert. E.g.:
+      #
+      #    javascript_confirm        { click_link "Destroy" }
+      #    javascript_confirm(false) { click_link "Destroy" }
+      def javascript_confirm(result = true)
+        raise ArgumentError, "Block required" unless block_given?
+        result = !! result
+
+        page.evaluate_script("window.original_confirm = window.confirm; window.confirm = function() { return #{result.inspect}; }")
+        yield
+        page.evaluate_script("window.confirm = window.original_confirm;")
+      end
+
       private
 
       def select_prefix_from_options(options)
