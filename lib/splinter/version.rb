@@ -1,3 +1,3 @@
 module Splinter
-  VERSION = Version = '0.0.4'
+  VERSION = Version = '0.0.5'
 end
