@@ -43,9 +43,7 @@ module Splinter
       #     t.time       :publish_at, Time.now
       #   end
       def complete_form(base)
-        form = FormCompleter.new(base)
-        yield form
-        form.each_input { |method, *args| send(method, *args) }
+        yield FormCompleter.new(base, self)
         find(:xpath, "//form[contains(@id,'#{base}')]//input[@type='submit']").click
       end
 
