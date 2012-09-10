@@ -1,7 +1,7 @@
 module Splinter
   module Capybara
-    # The FormCompleter is a simple stack that keeps track of Capybara actions
-    # to run.
+    # The FormCompleter is a simple proxy that delegates actions to a Capybara
+    # session.
     class FormCompleter
       def initialize(base, page)
         @base = base
