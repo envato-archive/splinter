@@ -9,7 +9,7 @@ module Splinter
       end
 
       def text_field(id, value)
-        @page.send :fill_in, "#{@base}_#{id}", { :with => value.to_s }
+        @page.fill_in "#{@base}_#{id}", { :with => value.to_s }
       end
       alias text_area text_field
 
@@ -18,23 +18,23 @@ module Splinter
       end
 
       def radio(id, value)
-        @page.send :choose, "#{@base}_#{id}_#{value}"
+        @page.choose "#{@base}_#{id}_#{value}"
       end
 
       def select(id, value)
-        @page.send :find_and_select_option, "#{@base}_#{id}", value
+        @page.find_and_select_option "#{@base}_#{id}", value
       end
 
       def time(id, value)
-        @page.send :select_time, value, { :id_prefix => "#{@base}_#{id}" }
+        @page.select_time value, { :id_prefix => "#{@base}_#{id}" }
       end
 
       def date(id, value)
-        @page.send :select_date, value, { :id_prefix => "#{@base}_#{id}" }
+        @page.select_date value, { :id_prefix => "#{@base}_#{id}" }
       end
 
       def datetime(id, value)
-        @page.send :select_datetime, value, { :id_prefix => "#{@base}_#{id}" }
+        @page.select_datetime value, { :id_prefix => "#{@base}_#{id}" }
       end
     end
   end
