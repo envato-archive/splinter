@@ -1,2 +1,5 @@
 .rbenv-version
 .rvmrc
+bin/
+.bundle/
+*.gem
