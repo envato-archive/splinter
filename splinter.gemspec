@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.files      = %w[ Rakefile README.markdown ]
   s.files     += Dir['lib/**/*', 'spec/**/*']
 
-  s.add_dependency 'capybara', '~> 2'
+  s.add_dependency 'capybara', '~> 2.0'
 
   s.add_development_dependency 'rspec',     '~> 2.12.0'
   s.add_development_dependency 'sinatra',   '~> 1.3.2'
