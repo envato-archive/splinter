@@ -95,4 +95,16 @@ describe Splinter, :type => :request do
       end
     end
   end
+
+  describe "#click_link_inside_row" do
+    before do
+      visit "/"
+    end
+
+    it "finds and click a link" do
+      click_link_inside_row "World", "Hello"
+
+      current_path.should == "/click_link_inside_row"
+    end
+  end
 end
