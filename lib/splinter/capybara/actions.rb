@@ -121,6 +121,14 @@ module Splinter
         page.evaluate_script("window.confirm = window.original_confirm;")
       end
 
+      # Finds a link inside a row and clicks it.
+      #
+      # lookup - the link text to look for
+      # row_content - the text to use when looking for a row
+      def click_link_inside_row(lookup, row_content)
+        find(:xpath, "//tr[contains(.,'#{row_content}')]/td/a", :text => lookup).click
+      end
+
       private
 
       def select_prefix_from_options(options)
