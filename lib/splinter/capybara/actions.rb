@@ -42,9 +42,18 @@ module Splinter
       #     f.datetime   :publish_at, Time.now
       #     t.time       :publish_at, Time.now
       #   end
+      #
+      # You can also manually submit in case your submit input field requires
+      # a custom selector:
+      #
+      #   complete_form :post do |f|
+      #     ...
+      #     f.submit "//custom/xpath/selector"
+      #   end
+      #
       def complete_form(base)
-        yield FormCompleter.new(base, self)
-        find(:xpath, "//form[contains(@id,'#{base}')]//input[@type='submit']").click
+        yield form = FormCompleter.new(base, self)
+        form.submit unless form.submitted?
       end
 
       # Selects hour and minute dropdowns for a time attribute.
