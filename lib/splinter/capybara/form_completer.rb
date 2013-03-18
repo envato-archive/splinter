@@ -3,6 +3,8 @@ module Splinter
     # The FormCompleter is a simple proxy that delegates actions to a Capybara
     # session.
     class FormCompleter
+      attr_reader :submitted
+
       def initialize(base, page)
         @base = base
         @page = page
@@ -35,6 +37,16 @@ module Splinter
 
       def datetime(id, value)
         @page.send :select_datetime, value, { :id_prefix => "#{@base}_#{id}" }
+      end
+
+      def submit(selector = "//form[contains(@id,'#{@base}')]//input[@type='submit']")
+        @page.send(:find, :xpath, selector).click
+        @submitted = true
+      end
+
+      # Public: Checks if this form has already been submitted.
+      def submitted?
+        submitted
       end
     end
   end
