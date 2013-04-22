@@ -18,6 +18,9 @@ module Splinter
           file = File.join(path, "#{name}.png")
           page.driver.render(file)
           puts "Saved screenshot to #{file}"
+          if Splinter.screenshot_callback
+            Splinter.screenshot_callback.call(file)
+          end
         else
           warn "Splinter.screenshot_directory doesn't exist!"
         end
