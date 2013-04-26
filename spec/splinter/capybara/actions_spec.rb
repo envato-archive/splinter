@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'test_app/server'
 require 'rack/test'
 
-describe Splinter, :type => :request do
+describe Splinter, :type => :feature do
   include Rack::Test::Methods
 
   def time

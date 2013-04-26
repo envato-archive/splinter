@@ -107,13 +107,10 @@ module Splinter
       # select_id - CSS ID to check, do *not* include #
       # value     - The value to select.
       def find_and_select_option(select_id, value)
-        select_err = "cannot select option, no select box with id '##{select_id}' found"
-        option_err = "cannot select option, no option with text '#{value}' in select box '##{select_id}'"
-
-        select = find(:css, "##{select_id}", :message => select_err)
+        select = find(:css, "##{select_id}")
         path = ".//option[contains(./@value, '#{value}')]"
 
-        select.find(:xpath, path, :message => option_err).select_option
+        select.find(:xpath, path).select_option
       end
 
       # Simulates a javascript alert confirmation. You need to pass in a block that will
@@ -145,17 +142,12 @@ module Splinter
           raise ArgumentError, "You must supply either :from or :id_prefix option"
         end
 
-        select_prefix   = options[:id_prefix]
-        select_prefix ||= find_prefix_by_label(options[:from])
-
-        select_prefix
+        options[:id_prefix] || find_prefix_by_label(options[:from])
       end
 
       def find_prefix_by_label(label)
-        message = "cannot select option, select with label '#{label}' not found"
-        path    = "//label[contains(normalize-space(string(.)), '#{label}')]/@for"
-
-        find(:xpath, path, :message => message).text.sub(/_\di$/, '')
+        path = "//label[contains(normalize-space(string(.)), '#{label}')]/@for"
+        find(:xpath, path).text(:all).sub(/_\di$/, '')
       end
     end
   end
