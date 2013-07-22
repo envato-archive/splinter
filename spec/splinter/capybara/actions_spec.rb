@@ -29,6 +29,7 @@ describe Splinter, :type => :feature do
         f.text_field :name, "Josh"
         f.text_area  :content, "Lorem ipsum"
         f.radio      :privacy, "private"
+        f.select     :country, "US"
         f.date       :publish_at, time
         f.datetime   :lock_at, time
         f.checkbox   :publish, true
@@ -39,6 +40,7 @@ describe Splinter, :type => :feature do
       it { find_result(:name).should == "Josh" }
       it { find_result(:content).should == "Lorem ipsum" }
       it { find_result(:privacy).should == "private" }
+      it { find_result(:country).should == "US" }
       it { find_result("publish_at(1i)").should == time.year.to_s }
       it { find_result("publish_at(2i)").should == time.month.to_s }
       it { find_result("publish_at(3i)").should == time.day.to_s }
