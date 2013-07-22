@@ -7,7 +7,7 @@
 
 <% if request.post? %>
   <ul id="results">
-  <% %W(name content privacy publish_at(1i) publish_at(2i) publish_at(3i)
+  <% %W(name content privacy country publish_at(1i) publish_at(2i) publish_at(3i)
     publish lock_at(1i) lock_at(2i) lock_at(3i) lock_at(4i) lock_at(5i)).each do |key| %>
     <li data-result-for="<%= key %>"><%= params[:post][key] %></li>
   <% end %>
@@ -33,6 +33,15 @@
     <label class="radio">
       <input class="radio_buttons required" id="post_privacy_public" name="post[privacy]" type="radio" value="public" />public
     </label>
+  </p>
+
+  <p>
+    <label class="control-label" for="post_country">Country</label>
+    <select id="post_country" name="post[country]">
+      <option value=""></option>
+      <option value="US">US</option>
+      <option value="US">US</option>
+    </select>
   </p>
 
   <p>
