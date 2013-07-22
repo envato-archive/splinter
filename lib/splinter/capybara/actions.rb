@@ -108,7 +108,7 @@ module Splinter
       # value     - The value to select.
       def find_and_select_option(select_id, value)
         select = find(:css, "##{select_id}")
-        path = ".//option[contains(./@value, '#{value}')]"
+        path = ".//option[contains(./@value, '#{value}')][1]"
 
         select.find(:xpath, path).select_option
       end
