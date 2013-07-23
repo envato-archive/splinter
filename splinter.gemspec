@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.homepage   = 'https://github.com/site5/splinter'
   s.authors    = ['Joshua Priddle']
   s.email      = 'jpriddle@me.com'
+  s.license    = 'MIT'
 
   s.files      = %w[ Rakefile README.markdown ]
   s.files     += Dir['lib/**/*', 'spec/**/*']
