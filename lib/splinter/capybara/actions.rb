@@ -17,7 +17,7 @@ module Splinter
         if path = Splinter.screenshot_directory
           args = [File.join(path, "#{name}.png"), Splinter.screenshot_options].compact
           page.driver.render(*args)
-          puts "Saved screenshot to #{file}"
+          puts "Saved screenshot to #{args.first}"
         else
           warn "Splinter.screenshot_directory doesn't exist!"
         end
