@@ -8,6 +8,8 @@ Rails forms.
 Bonus: Splinter also includes a few performance tweaks which can be used to
 speed up test suites. These are opt-in.
 
+Splinter has been tested on MRI 1.9.3, 2.0.0 and 2.1.2.
+
 [Build Icon]: https://secure.travis-ci.org/site5/splinter.png?branch=master
 [Build Status]: https://travis-ci.org/site5/splinter
 
@@ -88,4 +90,4 @@ You can use these helpers to confirm/cancel a javascript "confirm":
 
 ## Copyright
 
-Copyright (c) 2012 Site5.com. See LICENSE for details.
+Copyright (c) 2012-2014 Site5.com. See LICENSE for details.
