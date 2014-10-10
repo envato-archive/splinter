@@ -15,12 +15,16 @@ Splinter has been tested on MRI 1.9.3, 2.0.0 and 2.1.3.
 
 ## Installation
 
-    gem 'splinter'
-    bundle install
+```ruby
+gem 'splinter'
+bundle install
+```
 
 Add to `spec_helper.rb`:
 
-    require 'splinter/rspec'
+```ruby
+require 'splinter/rspec'
+```
 
 ## Performance Tweaks
 
@@ -29,19 +33,25 @@ can cause issues with transactional fixtures as ActiveRecord normally creates a
 new connection per-thread. If you need to force ActiveRecord to share the
 connection between threads, add the following to `spec_helper`:
 
-    require 'splinter/rspec/shared_connection'
+```ruby
+require 'splinter/rspec/shared_connection'
+```
 
 While not technically related to Capybara, the following GC tweak can increase
 run time by 10% or more in some suites. To enable it, add the following to
 `spec_helper`:
 
-    require 'splinter/rspec/deferred_garbage_collection'
+```ruby
+require 'splinter/rspec/deferred_garbage_collection'
+```
 
 ## Screenshots
 
 To capture screenshots on failure, add the following to `spec_helper`:
 
-    Splinter.screenshot_directory = "/path/to/screenshots"
+```ruby
+Splinter.screenshot_directory = "/path/to/screenshots"
+```
 
 ## Date/Time/Datetime Helpers
 
@@ -49,11 +59,13 @@ These are mostly borrowed from [`Hermes::Actions`](http://git.io/bhLQqQ).
 They're useful for completing the multiple dropdowns required for a
 date/time/datetime field in a Rails form.
 
-    # Select by CSS ID
-    select_date Time.now, :id_prefix => :publish_at
+```ruby
+# Select by CSS ID
+select_date Time.now, :id_prefix => :publish_at
 
-    # Select by label text, label must have for="id_prefix"
-    select_date Time.now, :from => "Publish at"
+# Select by label text, label must have for="id_prefix"
+select_date Time.now, :from => "Publish at"
+```
 
 There are also `select_time`, and `select_datetime` variants with the same
 usage.
@@ -62,12 +74,14 @@ usage.
 
 Here's a little sugar to help complete Rails forms:
 
-    complete_form :post do |f|
-      f.text_field :name, "I like turtles!"
-      f.date       :publish_at, 3.days.from_now
-      f.select     :category, "Blog Posts"
-      f.checkbox   :published, false
-    end
+```ruby
+complete_form :post do |f|
+  f.text_field :name, "I like turtles!"
+  f.date       :publish_at, 3.days.from_now
+  f.select     :category, "Blog Posts"
+  f.checkbox   :published, false
+end
+```
 
 After the block is evaluated, the form is completed and submitted.
 
@@ -75,8 +89,10 @@ After the block is evaluated, the form is completed and submitted.
 
 You can use these helpers to confirm/cancel a javascript "confirm":
 
-    javascript_confirm        { click_link "Destroy" }
-    javascript_confirm(false) { click_link "Destroy" }
+```ruby
+javascript_confirm        { click_link "Destroy" }
+javascript_confirm(false) { click_link "Destroy" }
+```
 
 ## Note on Patches/Pull Requests
 
