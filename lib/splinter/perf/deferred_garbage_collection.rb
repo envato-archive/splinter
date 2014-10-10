@@ -2,7 +2,7 @@ module Splinter
   # Speed up specs by tweaking garbage collection
   #
   # See:
-  #   http://37signals.com/svn/posts/2742-the-road-to-faster-tests and
+  #   https://signalvnoise.com/posts/2742-the-road-to-faster-tests and
   #   https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection
   class DeferredGarbageCollection
 
