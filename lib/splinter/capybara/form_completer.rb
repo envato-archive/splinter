@@ -39,7 +39,7 @@ module Splinter
         @page.send :select_datetime, value, { :id_prefix => "#{@base}_#{id}" }
       end
 
-      def submit(selector = "//form[contains(@id,'#{@base}')]//input[@type='submit']")
+      def submit(selector = "//form[contains(@id,'#{@base}')]//*[@type='submit']")
         @page.send(:find, :xpath, selector).click
         @submitted = true
       end
