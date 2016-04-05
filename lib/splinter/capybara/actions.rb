@@ -9,11 +9,6 @@ module Splinter
       #
       # name - The name of the screenshot. Uses the current time by default.
       def take_screenshot!(name = "#{Time.now.strftime('%Y%m%d%H%M%S%L')}")
-        unless example.metadata[:js]
-          warn "Screenshots can only be captured when an example is tagged with :js => true"
-          return
-        end
-
         if path = Splinter.screenshot_directory
           args = [File.join(path, "#{name}.png"), Splinter.screenshot_options].compact
           page.driver.render(*args)
