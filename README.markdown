@@ -10,7 +10,7 @@ speed up test suites. These are opt-in.
 
 Splinter has been tested on MRI 2.1.8, 2.2.4 and 2.3.0.
 
-[Build Icon]: https://secure.travis-ci.org/site5/splinter.png?branch=master
+[Build Icon]: https://travis-ci.org/site5/splinter.svg?branch=master
 [Build Status]: https://travis-ci.org/site5/splinter
 
 ## Installation
@@ -106,4 +106,4 @@ javascript_confirm(false) { click_link "Destroy" }
 
 ## Copyright
 
-Copyright (c) 2012-2014 Site5.com. See LICENSE for details.
+Copyright (c) 2012-2016 Site5.com. See LICENSE for details.
