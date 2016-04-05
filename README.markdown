@@ -8,7 +8,7 @@ Rails forms.
 Bonus: Splinter also includes a few performance tweaks which can be used to
 speed up test suites. These are opt-in.
 
-Splinter has been tested on MRI 1.9.3, 2.0.0 and 2.1.3.
+Splinter has been tested on MRI 2.1.8, 2.2.4 and 2.3.0.
 
 [Build Icon]: https://secure.travis-ci.org/site5/splinter.png?branch=master
 [Build Status]: https://travis-ci.org/site5/splinter
