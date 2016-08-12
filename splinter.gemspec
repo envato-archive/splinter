@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version    = Splinter::Version
   s.date       = Time.now.strftime('%Y-%m-%d')
   s.summary    = 'Splinter is a Capybara Ninja'
-  s.homepage   = 'https://github.com/site5/splinter'
+  s.homepage   = 'https://github.com/pressednet/splinter'
   s.authors    = ['Joshua Priddle']
   s.email      = 'jpriddle@me.com'
   s.license    = 'MIT'
